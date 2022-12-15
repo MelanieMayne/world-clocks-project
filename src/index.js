@@ -26,9 +26,6 @@ function updateTime() {
     if (cityTimeZone === "current"){
       cityTimeZone = moment.tz.guess();
     }
-    if (cityTimeZone === "null") {
-      alert("Oops...choose a city");
-    }
     let cityName = cityTimeZone.replace("_", " ").split("/")[1];
     let cityTime = moment.tz(cityTimeZone);
 
@@ -37,7 +34,7 @@ function updateTime() {
         <div>
           <div class="city">${cityName}</div>
           <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
-        </div>
+         </div>
         <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
       </div>
     `;
