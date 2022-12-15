@@ -10,12 +10,14 @@
       "Lucida Sans", Arial, sans-serif;
     background: var(--background-color);
   }
-  h1 a {
+  h1 {
     font-size: 48px;
-    color: var(--main-color);
     font-weight: bold;
     text-align: center;
+  }
+  h1 a {
     text-decoration: none;
+    color: var(--main-color);
   }
   select {
     margin: 15px auto;
