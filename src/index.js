@@ -18,27 +18,32 @@ function updateTime() {
   parisCityNameElement.innerHTML = "Paris";
   parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
   parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+}
+
+let cityInterval = null;
+function updateCity(event) {
+  let cityTimeZone = event.target.value;
+  if (cityTimeZone === "current"){ 
+    cityTimeZone = moment.tz.guess();
   }
+  let cityName = cityTimeZone.replace("_", " ").split("/")[1];
+  clearInterval(cityInterval);
 
-  function updateCity(event) {
-    let cityElement = document.querySelector("#cities");
-    let cityTimeZone = event.target.value;
-    if (cityTimeZone === "current"){
-      cityTimeZone = moment.tz.guess();
-    }
-    let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-    let cityTime = moment.tz(cityTimeZone);
-
-    cityElement.innerHTML += `
-      <div class="clock-display" id="los-angeles">
-        <div>
-          <div class="city">${cityName}</div>
-          <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
-         </div>
-        <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div>
+  setCityInterval(cityTimeZone, cityName);
+  cityInterval = setInterval(setCityInterval, 1000, cityTimeZone, cityName);
+}
+function setCityInterval(cityTimeZone, cityName) { 
+  let cityElement = document.querySelector("#cities");
+  let cityTime = moment.tz(cityTimeZone);
+  cityElement.innerHTML += `
+    <div class="clock-display" id="los-angeles">
+      <div>
+        <div class="city">${cityName}</div>
+        <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
       </div>
-    `;
-  }
+      <div class="time">${cityTime.format("h:mm:ss")} <small>${cityTime.format("A")}</small></div></div>
+  `;
+}
 
   let citiesSelect = document.querySelector("#city");
   citiesSelect.addEventListener("change", updateCity); 
