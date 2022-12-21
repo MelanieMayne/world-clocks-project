@@ -84,4 +84,25 @@
   .netlify-link:hover {
     color: var(--third-color);
   }
+  @media (max-width: 500px) {
+    .container {
+      max-width: 300px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .city {
+      font-size: 18px;
+    }
+    .date {
+      font-size: 10px;
+    }
+    .time {
+      font-size: 25px;
+    }
+    footer {
+      font-size: 10px;
+      max-width: 300px;
+    }
+  }
   
