@@ -9,15 +9,15 @@ function updateTime() {
   losAngelesDateElement.innerHTML = losAngelesTime.format("MMMM Do YYYY");
   losAngelesTimeElement.innerHTML = losAngelesTime.format("h:mm:ss [<small>]A[</small>]");
   
-  let parisElement = document.querySelector("#paris");
-  let parisCityNameElement = document.querySelector("#city-name-p");
-  let parisDateElement = parisElement.querySelector(".date");
-  let parisTimeElement = parisElement.querySelector(".time");
-  let parisTime = moment().tz("Europe/Paris");
-  
-  parisCityNameElement.innerHTML = "Paris";
-  parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
-  parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
+  let romeElement = document.querySelector("#rome");
+  let romeCityNameElement = document.querySelector("#city-name-r");
+  let romeDateElement = romeElement.querySelector(".date");
+  let romeTimeElement = romeElement.querySelector(".time");
+  let romeTime = moment().tz("Europe/Rome");
+
+  romeCityNameElement.innerHTML = "Rome";
+  romeDateElement.innerHTML = romeTime.format("MMMM Do YYYY");
+  romeTimeElement.innerHTML = romeTime.format("h:mm:ss [<small>]A[</small>]");
 }
 let cityInterval = null;
 function updateCity(event) {
