@@ -19,6 +19,11 @@
     text-decoration: none;
     color: var(--main-color);
   }
+  h1 a:hover {
+    text-decoration: underline dashed var(--third-color);
+    color: var(--second-color);
+    
+  }
   select {
     margin: 15px auto;
     width: 100%;
