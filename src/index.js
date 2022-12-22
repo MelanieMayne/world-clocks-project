@@ -19,7 +19,6 @@ function updateTime() {
   parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
   parisTimeElement.innerHTML = parisTime.format("h:mm:ss [<small>]A[</small>]");
 }
-
 let cityInterval = null;
 function updateCity(event) {
   let cityTimeZone = event.target.value;
@@ -35,7 +34,7 @@ function updateCity(event) {
 function setCityInterval(cityTimeZone, cityName) { 
   let cityElement = document.querySelector("#cities");
   let cityTime = moment.tz(cityTimeZone);
-  cityElement.innerHTML += `
+  cityElement.innerHTML = `
     <div class="clock-display" id="los-angeles">
       <div>
         <div class="city">${cityName}</div>
